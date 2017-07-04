@@ -1,0 +1,38 @@
+<!-- <div *ngIf="!appid; else forminfo">  -->
+
+<div *ngIf="!appid">
+    <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+        <div class="form-container">
+            <div class="row columns">
+            <h1> Existing application</h1>
+
+            <label style="font-size: 12px">Application Id
+                <input type="text" class="form-control" formControlName="appid">
+            </label>   
+            <div class="alert"  *ngIf="!rForm.controls['appid'].valid && rForm.controls['appid'].touched">{{alert}}
+
+
+            </div>
+            <input type="submit" class="button expanded" value="submit" [disabled]="!rForm.valid">
+             
+             
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+
+<template #forminfo>
+    <div class="form-container">
+        <div class="row columns">
+
+          <h4> HI ALL</h4>  
+            <h1> {{appid}}</h1>
+
+        </div>
+    </div>
+<template>
+
+
